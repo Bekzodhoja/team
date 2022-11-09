@@ -33,11 +33,28 @@
             <th style="padding: 30px">Email</th>
             <th style="padding: 30px">Action</th>
           </tr>
-          <tr>
-            <th>xusan</th>
-            <th>xusan@gmail.com</th>
-            <th>Delete</th>
+
+
+          @foreach($date as $key)
+          <tr align="center">
+            <td>{{$key->name}}</td>
+            <td>{{$key->email}}</td>
+
+            @if($key->usertype == "0")
+            <td><a href="{{url('/deleteuser',$key->id)}}">Delete</a></td>
+            @else
+            <td><a>Not Allowed</a></td>
+            @endif
+
+
           </tr>
+
+          @endforeach
+
+
+
+
+
        </table>
 
    </div>
