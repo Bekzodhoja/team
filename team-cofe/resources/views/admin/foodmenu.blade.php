@@ -65,7 +65,8 @@
                         <th>Price</th>
                         <th>Description</th>
                         <th>Images</th>
-                        <th>Actions</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,6 +80,7 @@
                             <td>{{ $key->description }}</td>
                             <td><img src="/foodimage/{{ $key->image }}" alt=""></td>
                             <td><a href="{{ url('/deletemenu', $key->id) }}">Delete</a></td>
+                            <td><a href="{{ url('/updateview', $key->id) }}">Update</a></td>
                         </tr>
                     
                     @endforeach
