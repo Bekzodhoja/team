@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Food;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-        public function user()
+   public function user()
    {
 
     $date=user::all();  
@@ -22,4 +23,31 @@ class AdminController extends Controller
     $date->delete(); 
     return redirect()->back();
    }
+
+
+   public function foodmenu(){
+        $date=user::all();  
+        return view("admin.foodmenu");
+   }
+
+   public function upload(Request $request){
+        $data = new Food;
+
+        $image = $request->image;
+
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $request->image->move('foodimage', $imagename); 
+
+        $data->image = $imagename;
+
+        $data->title = $request->title;
+        $data->price = $request->price;
+        $data->description = $request->description;
+
+        $data->save();
+
+        return redirect()->back();
+
+   }
+
 }
