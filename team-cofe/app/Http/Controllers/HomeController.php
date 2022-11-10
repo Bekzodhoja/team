@@ -19,7 +19,8 @@ class HomeController extends Controller
 
     public function redirects()
     {
-        $data = Food::all();
+        $data = Food::all();        
+        $chef = Foodchef::all();
 
         $usertype = Auth::user()->usertype;
 
@@ -30,7 +31,7 @@ class HomeController extends Controller
 
         else
         {
-            return view('home', compact('data'));
+            return view('home', compact('data', 'chef'));
         }
     }
 }
