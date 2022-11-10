@@ -18,7 +18,10 @@
 
     @include("admin.navbar")
 
-    <div class="row m-auto align-items-center">
+    
+
+    <div class="container">
+        <div class="col-7 mt-5 m-auto align-items-center">
 
         <form class="" action="{{ url('/uploadfood') }}" method="post" enctype="multipart/form-data">
 
@@ -51,10 +54,44 @@
 
         </form>
 
+        </div>
+
+        <div class="col-10 m-auto mt-5">
+            <table class="table bg-white text-dark">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Images</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach($data as $key)
+
+                        <tr>
+                            <th scope="row">{{ $key->id }}</th>
+                            <td>{{ $key->title }}</td>
+                            <td>{{ $key->price }}</td>
+                            <td>{{ $key->description }}</td>
+                            <td><img src="/foodimage/{{ $key->image }}" alt=""></td>
+                            <td><a href="{{ url('/deletemenu', $key->id) }}">Delete</a></td>
+                        </tr>
+                    
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
-
   </div>
+
+  
 
   @include("admin.adminscript")
 

@@ -26,8 +26,11 @@ class AdminController extends Controller
 
 
    public function foodmenu(){
-        $date=user::all();  
-        return view("admin.foodmenu");
+
+
+
+        $data = Food::all();  
+        return view("admin.foodmenu", compact('data'));
    }
 
    public function upload(Request $request){
@@ -48,6 +51,12 @@ class AdminController extends Controller
 
         return redirect()->back();
 
+   }
+
+   public function deletemenu($id) {
+        $data = Food::find($id);
+        $data->delete();
+        return redirect()->back();
    }
 
 }
