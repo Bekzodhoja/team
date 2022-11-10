@@ -40,13 +40,11 @@
 
         </div>
 
-    </div>
+        <div class="row my-5">
 
-    <div class="container">
+        <div class="col-10 m-auto bg-white">
 
-        <div class="col-10">
-
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -54,6 +52,7 @@
                         <th scope="col">Spelificate</th>
                         <th scope="col">Image</th>
                         <th scope="col">Delete</th>
+                        <th scope="col">Edit</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,7 +64,8 @@
                             <td>{{ $key->name }}</td>
                             <td>{{ $key->speciality }}</td>
                             <td><img src="/chefimage/{{ $key->image }}" alt=""></td>
-                            <td></td>
+                            <td><a href="{{ url('/deletechef', $key->id) }}">Delete</a></td>
+                            <td><a href="{{ url('/updatechef', $key->id) }}">Edit</a></td>
                         </tr>
 
                     @endforeach
@@ -76,6 +76,10 @@
         </div>
 
     </div>
+
+    </div>
+
+    
 
   </div>
 
