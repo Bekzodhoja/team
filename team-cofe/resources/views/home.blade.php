@@ -88,6 +88,29 @@ https://templatemo.com/tm-558-klassy-cafe
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
                             <li class="scroll-to-section"><a href="#reservation">
                                 Contact Us</a></li> 
+
+
+
+
+
+
+
+
+
+                                <li class="scroll-to-section" style="background-color: red;"><a href="#reservation">
+                                @auth
+                                
+                                Cart[{{$count}}]
+                            
+                                @endauth
+                            
+
+                                @guest
+
+                                Cart[0]
+
+                                @endguest
+                            </a></li> 
                                 <li>
 
                                 @if (Route::has('login'))
@@ -114,9 +137,7 @@ https://templatemo.com/tm-558-klassy-cafe
 
                                 </li>
                         </ul>        
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
+                        
                         <!-- ***** Menu End ***** -->
                     </nav>
                 </div>
