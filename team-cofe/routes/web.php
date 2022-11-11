@@ -35,6 +35,8 @@ Route::get("/deletechef/{id}",[AdminController::class,"deletechef"]);
 Route::get("/updatechef/{id}",[AdminController::class,"updatechef"]);
 Route::post("/updatefoodchef/{id}",[AdminController::class,"updatefoodchef"]);
 Route::post("/addcart/{id}",[HomeController::class,"addcart"]);
+Route::get("/showcart/{id}",[HomeController::class,"showcart"]);
+Route::get("/remove/{id}",[HomeController::class,"remove"]);
 
 
 

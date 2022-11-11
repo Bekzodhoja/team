@@ -90,18 +90,11 @@ https://templatemo.com/tm-558-klassy-cafe
                                 Contact Us</a></li> 
 
 
-
-
-
-
-
-
-
-                                <li class="scroll-to-section" style="background-color: red;"><a href="#reservation">
+                                <li class="scroll-to-section" style="background-color: red;">
                                 @auth
-                                
-                                Cart[{{$count}}]
-                            
+                              <a href="{{url('/showcart',Auth::user()->id)}}"> 
+                                Cart
+                              </a> 
                                 @endauth
                             
 
@@ -248,7 +241,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
                         <h6>Klassy Week</h6>
-                        <h2>This Week’s Special Meal Offers</h2>
+                        <h2>This Week's Special Meal Offers</h2>
                     </div>
                 </div>
             </div>
