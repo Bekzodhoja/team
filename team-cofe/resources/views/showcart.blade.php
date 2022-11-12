@@ -147,25 +147,38 @@ https://templatemo.com/tm-558-klassy-cafe
 
 
 <tr align="center" >
-<th style="padding:30px ;">Food Name</th>
-<th style="padding:30px ;">Price</th>
-<th style="padding:30px ;">Quantity</th>
-<th style="padding:30px ;">Action</th>
+   <th style="padding:30px ;">Food Name</th>
+   <th style="padding:30px ;">Price</th>
+   <th style="padding:30px ;">Quantity</th>
+   <th style="padding:30px ;">Action</th>
 </tr>
+
+<form action="{{url('orderconfirm')}}" method="POST">
+@csrf
 
 @foreach($data as $data)
-<tr align="center">
-<td>{{$data->title}}</td>
-<td>{{$data->price}}</td>
-<td>{{$data->quantity}}</td>
 
+<tr align="center">
+   <td>
+    <input type="text" name="foodname[]" value="{{$data->title}}" hidden="">
+    {{$data->title}}
+   </td>
+   <td>
+   <input type="text" name="price[]" value="{{$data->price}}" hidden="">
+    {{$data->price}}
+   </td>
+   <td>
+   <input type="text" name="quantity[]" value="{{$data->quantity}}" hidden="">
+    {{$data->quantity}}
+   </td>
 </tr>
+
 @endforeach
 
 @foreach($dcart as $dcart)
-<tr style="position: relative; top:-80px; right: -360px;">
-<td > <a href="{{url('/remove',$dcart->id)}}" class="btn btn-danger">Remove</a> </td>
 
+<tr style="position: relative; top:-80px; right: -360px;">
+   <td > <a href="{{url('/remove',$dcart->id)}}" class="btn btn-danger">Remove</a> </td>
 </tr>
 
 @endforeach
@@ -173,35 +186,34 @@ https://templatemo.com/tm-558-klassy-cafe
 </table>
 
 <div align="center" style="padding:10px;" >
-<button class="btn btn-primary" id="order">Order Now</button>
+    <button class="btn bg-primary" type="button" id="order">Order Now</button>
 </div>
 
 
 
 
 <div id="appear" align="center" style="padding:10px ; display:none;" >
-    <div style="padding:10px;">
+  <div style="padding:10px;">
 <label>Name</label>
-<input type="text" name="name" placeholder="Name">
-    </div>
+       <input type="text" name="name" placeholder="Name">
+  </div>
 
-    <div style="padding:10px;">
+  <div style="padding:10px;">
 <label>Phone</label>
-<input type="text" name="Phone" placeholder="Phone Number">
-    </div>
+       <input type="text" name="Phone" placeholder="Phone Number">
+  </div>
 
-    <div style="padding:10px;">
+  <div style="padding:10px;">
 <label>Address</label>
-<input type="text" name="address" placeholder="Address">
-    </div>
+      <input type="text" name="address" placeholder="Address">
+   </div>
 
-    <div style="padding:10px;">
-<input class="btn bg-success " type="submit" value="Order Confirm">
-<button id="close" class="btn btn-danger">Close</button>
-    </div>
+  <div style="padding:10px;">
+      <input class="btn bg-success " type="submit" value="Order Confirm">
+      <button id="close" class="btn bg-danger" type="button">Close</button>
+  </div>
 </div>
-
-
+</form>
 
 
 
